@@ -56,3 +56,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :development do
   gem 'rubocop', require: false
 end
+
+gem 'devise'
+gem 'bootstrap-sass', '3.4.1'
+gem 'active_hash'
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
