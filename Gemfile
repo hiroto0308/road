@@ -58,3 +58,4 @@ group :development do
 end
 
 gem 'devise'
+gem 'bootstrap-sass', '3.4.1'
