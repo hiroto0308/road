@@ -57,6 +57,10 @@ group :development do
   gem 'rubocop', require: false
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 gem 'devise'
 gem 'bootstrap-sass', '3.4.1'
 gem 'active_hash'
