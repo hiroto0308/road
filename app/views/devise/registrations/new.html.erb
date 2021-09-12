@@ -1,7 +1,11 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<h2>新規登録</h2>
+<%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+<%# <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %> 
   <%= render "devise/shared/error_messages", resource: resource %>
+<div class="field">
+    <%= f.label :nickname %><br />
+     <%= f.text_field :nickname,  placeholder:"例) ゲスト", maxlength:"12" %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -21,9 +25,31 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+ 
+  <div class="field">
+    <%= f.label :profile %><br />
+     <%= f.text_area :profile,  placeholder:"例) エンジニア歴1年です！", maxlength:"200" %>
+  </div>
+
+<div class="field">
+    <%= f.label "性別" %><br />
+   <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"gender-select"}) %>
+  </div>
+
+<div class="field">
+    <%= f.label "年齢" %><br />
+   <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"gender-select"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label  "写真" %><br />
+    <%= f.file_field :image %>
+  </div>
+ 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "登録" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+
