@@ -15,8 +15,7 @@ class Area < ActiveHash::Base
     { id: 13, name: '66〜70' },
     { id: 14, name: '71以上' }
   ]
- 
-   include ActiveHash::Associations
-   has_many :users
- 
-  end
+
+  include ActiveHash::Associations
+  has_many :users
+end
