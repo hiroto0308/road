@@ -1,0 +1,51 @@
+
+
+<div class="rooad-post">
+  <%= form_with(model: @rooad, local: true) do |f| %>
+<%= render 'shared/error_messages', model:@rooad %>
+<%# roadカラムの内容 %>
+  <div class="field">
+    <%= f.label "タイトル" %><br />
+     <%= f.text_field :title, placeholder: "例)エンジニア転職までの道のり" %>
+  </div>
+  <div class="field">
+    <%= f.label "学習状況" %><br />
+    <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"status-select"}) %>
+  </div>
+
+<%# /roadカラムの内容 %>
+
+<%# フォームの内容 %>
+    <div class="repetition">
+      <div class="mx-auto">
+        <%= f.fields_for :repetitions do |t| %>
+          <%= render "rooads/repetition_fields", f: t %>
+        <% end %>
+      </div>
+
+      <div id="detail-association-insertion-point"></div>
+
+      <div class="col-10 mx-auto mt-2">
+        <%= link_to_add_association "+フォームを追加", f, :repetitions,
+        class: "btn btn-secondary btn-block",
+        data: {
+        association_insertion_node: '#detail-association-insertion-point',
+        association_insertion_method: 'after'
+        }%>
+      </div>
+    </div>
+<%# フォームの内容 %>
+
+<%# roadカラムの内容 %>
+<div class="field">
+    <%= f.label "詳細(1,000文字以内)" %><br />
+     <%= f.text_area :detail, placeholder: "例)1日平均8時間の学習をしました" %>
+  </div>
+<%# roadカラムの内容 %>
+
+<div class="sell-btn-contents">
+      <%= f.submit "投稿する"  %>
+      <%=link_to 'もどる', root_path %>
+    </div>
+  <% end %>
+</div>
