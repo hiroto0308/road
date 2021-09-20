@@ -14,6 +14,14 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender
   belongs_to :area
-
   has_one_attached :image
+
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.nickname = "ゲストさん"
+      
+    end
+  end  
+
 end
