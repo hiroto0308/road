@@ -40,11 +40,16 @@ class RooadsController < ApplicationController
     end
   end
 
+  def destroy
+    @rooad.destroy
+    redirect_to rooads_path
+  end
+
   private
 
   def rooad_params
     params.require(:rooad).permit(:status_id, :title, :detail,
-                                  repetitions_attributes: [:name, :period, :memo, :_destroy]).merge(user_id: current_user.id)
+                                  repetitions_attributes: [:id, :name, :period, :memo, :_destroy]).merge(user_id: current_user.id)
   end
 
   def set_rooad
