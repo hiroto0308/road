@@ -30,7 +30,7 @@ class RooadsController < ApplicationController
   end
 
   def edit
-  end  
+  end
 
   def update
     if @rooad.update(rooad_params)
@@ -39,6 +39,7 @@ class RooadsController < ApplicationController
       render :edit
     end
   end
+
   private
 
   def rooad_params
@@ -48,7 +49,7 @@ class RooadsController < ApplicationController
 
   def set_rooad
     @rooad = Rooad.find(params[:id])
-  end  
+  end
 
   def login_user
     redirect_to root_path unless current_user.id == @rooad.user_id
