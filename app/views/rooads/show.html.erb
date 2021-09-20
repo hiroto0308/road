@@ -17,3 +17,11 @@
 <%# /フォーム(repetitions)繰り返し %>
 
 <p>詳細:<%= @rooad.detail %></p>
+
+<%# 制作者のみ編集・削除 %>
+<% if  user_signed_in? && current_user.id == @rooad.user_id %>
+    <%= link_to 'イベントの編集', edit_rooad_path, method: :get, class: "item-red-btn" %>
+    <p class='or-text'>or</p>
+    <%= link_to '削除', rooad_path, method: :delete, class:'item-red-btn' %>
+<% end %>
+<%# /制作者のみ編集・削除 %>
