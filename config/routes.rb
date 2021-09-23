@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   end
    root to: 'static_pages#top'
   resources :rooads
+
+  post 'like/:id' => 'likes#create', as: 'create_like'
+  delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
 end

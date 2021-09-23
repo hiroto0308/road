@@ -15,11 +15,16 @@ class User < ApplicationRecord
   belongs_to :gender
   belongs_to :area
   has_one_attached :image
+  has_many :likes
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.nickname = 'ゲスト'
     end
+  end
+
+  def liked_by?(rooad_id)
+    likes.where(rooad_id: rooad_id).exists?
   end
 end
