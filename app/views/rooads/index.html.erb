@@ -4,12 +4,7 @@
 <h1>口コミ一覧</h1>
 
 <% @rooads.each do |rooad|%>
- <%# <p>/写真</p> %>
- <p>名前: <%=  rooad.user.nickname %>さん</p> 
- <p>学習状態：<%= rooad.status.name %></p>
- <p>＜ロードマップ公開中＞</p> 
- <p>タイトル:<%= rooad.title %></p>
- <%# グラフ・いいね %>
- <%= link_to 'もっと見る',  rooad_path(rooad.id) %>
+  <%= render 'post', rooad: rooad %>
+ 
 <% end %>
 

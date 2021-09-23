@@ -3,6 +3,7 @@ class Rooad < ApplicationRecord
   has_many   :repetitions, inverse_of: :rooad, dependent: :destroy
   accepts_nested_attributes_for :repetitions,  allow_destroy: true
   validates_associated :repetitions
+  has_many :likes
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :status
