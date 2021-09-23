@@ -3,11 +3,31 @@
  <p>学習状態：<%= @rooad.status.name %></p>
  <p>タイトル:<%= @rooad.title %></p>
  <%# 合計学習期間 %>
- <%# グラフ・いいね %>
+ <%# グラフ %>
+<%# いいね %>
+  <div id="rooad_<%= @rooad.id %>">
+  <%= render partial:'rooads/post', locals: { rooad: @rooad} %>
+</div >
+<%# いいね %>
+
+<%# 制作者のみ編集・削除 %>
+<% if  user_signed_in? && current_user.id == @rooad.user_id %>
+  <%= link_to  edit_rooad_path, class: "btn-danger", method: :get do %>
+   <i class="fas fa-edit edit-btn"></i>
+  <% end %>
+
+ <%= link_to  rooad_path, class: "btn-danger", method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+  <i class="far fa-trash-alt delete-btn"></i>
+ <% end %>
+<% end %>
+<%# /制作者のみ編集・削除 %>
 
 <%# フォーム(repetitions)繰り返し %>
  <h2>学習詳細</h2>
 <%  @rooad.repetitions.each do |rooad|%>
+
+
+
   <p>学習内容: <%=  rooad.name %></p>
   <p>学習期間: <%=  rooad.period %>日</p>
  <% if rooad.memo.present? %> 
@@ -20,10 +40,3 @@
 <p>詳細:<%= @rooad.detail %></p>
 <% end %> 
 
-<%# 制作者のみ編集・削除 %>
-<% if  user_signed_in? && current_user.id == @rooad.user_id %>
-    <%= link_to 'イベントの編集', edit_rooad_path, method: :get, class: "item-red-btn" %>
-    <p class='or-text'>or</p>
-    <%= link_to '削除', rooad_path, method: :delete, class:'item-red-btn' %>
-<% end %>
-<%# /制作者のみ編集・削除 %>

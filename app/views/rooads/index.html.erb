@@ -4,7 +4,29 @@
 <h1>口コミ一覧</h1>
 
 <% @rooads.each do |rooad|%>
-  <%= render 'post', rooad: rooad %>
+ 
+ <%# <p>/写真</p> %>
+ <p>名前: <%=  rooad.user.nickname %>さん</p> 
+ <p>学習状態：<%= rooad.status.name %></p>
+ <p>＜ロードマップ公開中＞</p> 
+ <p>タイトル:<%= rooad.title %></p>
+ <%# グラフ %>
+ <div id="rooad_<%= rooad.id %>">
+  <%= render partial:'rooads/post', locals: { rooad: rooad} %>
+</div >
+
+<%# 制作者のみ編集・削除 %>
+<% if  user_signed_in? && current_user.id == rooad.user_id %>
+  <%= link_to  edit_rooad_path(rooad.id), class: "btn-danger", method: :get do %>
+   <i class="fas fa-edit edit-btn"></i>
+  <% end %>
+
+ <%= link_to  rooad_path(rooad.id), class: "btn-danger", method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+  <i class="far fa-trash-alt delete-btn"></i>
+ <% end %>
+<% end %>
+<%# /制作者のみ編集・削除 %>
+   <%= link_to 'もっと見る',  rooad_path(rooad.id) %>
  
 <% end %>
 

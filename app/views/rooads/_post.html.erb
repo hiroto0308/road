@@ -1,13 +1,20 @@
- <%# <p>/写真</p> %>
- <p>名前: <%=  rooad.user.nickname %>さん</p> 
- <p>学習状態：<%= rooad.status.name %></p>
- <p>＜ロードマップ公開中＞</p> 
- <p>タイトル:<%= rooad.title %></p>
- <%# グラフ・いいね %>
-  <%# 以下を追記 %>
+ 
+  
         <% if current_user.liked_by?(rooad.id) %>
-          <td><%= link_to 'いいねを外す', destroy_like_path(rooad), method: :DELETE, remote: true %><%= rooad.likes.count %></td>
+          <td>
+           <%= link_to  destroy_like_path(rooad), class: "like-link", method: :DELETE, remote: true do %>
+            <i class="fa fa-heart unlike-btn"></i>
+           <% end %>
+           <%= rooad.likes.count %>
+          </td>
         <% else %>
-          <td><%= link_to 'いいね', create_like_path(rooad), method: :POST, remote: true %><%= rooad.likes.count %></td>
+          <td>
+           <%= link_to  create_like_path(rooad), class: "like-link", method: :POST, remote: true do %>
+            <i class="far fa-heart like-btn"></i>
+           <% end %>
+           <%= rooad.likes.count %>
+          </td>
         <% end %>
- <%= link_to 'もっと見る',  rooad_path(rooad.id) %>
+
+        
+
