@@ -5,11 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   with_options presence: true do
     validates :nickname
-    validates :password
+    validates :password, on: :create
   end
+  
 
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i.freeze
-  validates :password, format: { with: VALID_PASSWORD_REGEX }
+  validates :password, format: { with: VALID_PASSWORD_REGEX }, allow_blank: true
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender
@@ -27,5 +28,18 @@ class User < ApplicationRecord
 
   def liked_by?(rooad_id)
     likes.where(rooad_id: rooad_id).exists?
+  end
+
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
   end
 end
