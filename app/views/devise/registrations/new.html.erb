@@ -42,14 +42,19 @@
   </div>
 
   <div class="field">
-    <%= f.label  "写真" %><br />
+   <%= f.label  "写真" %><br />
+   <div id="image-list"></div>
+    
     <%= f.file_field :image %>
   </div>
- 
+
   <div class="actions">
     <%= f.submit "登録" %>
   </div>
+  
 <% end %>
+
+ 
 
 
 
