@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+      rooad:
+        status_id: 学習状況の
+        title: タイトル
+        repetitions: フォーム
+      repetitions: 
+        name: 学習内容
+        period: 学習期間
