@@ -1,5 +1,10 @@
   <% breadcrumb :show %>
   <%# <p>/写真</p> %>
+  <% if @rooad.user.image.present? %> 
+  <%= link_to image_tag(@rooad.user.image, class: "card__img" ), root_path %>
+ <% else %> 
+  <%= image_tag 'gesuto.png', class: "card__img" %>
+ <% end %>
  <p>名前: <%=  @rooad.user.nickname %>さん</p> 
  <p>学習状態：<%= @rooad.status.name %></p>
  <p>タイトル:<%= @rooad.title %></p>
@@ -26,9 +31,6 @@
 <%# フォーム(repetitions)繰り返し %>
  <h2>学習詳細</h2>
 <%  @rooad.repetitions.each do |rooad|%>
-
-
-
   <p>学習内容: <%=  rooad.name %></p>
   <p>学習期間: <%=  rooad.period %>日</p>
  <% if rooad.memo.present? %> 
