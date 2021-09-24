@@ -2,7 +2,7 @@
 
 <div class="rooad-post">
   <%= form_with(model: @rooad, local: true) do |f| %>
-<%= render 'shared/error_messages', model:@rooad %>
+<%= render 'layouts/error_messages', model: f.object %>
 <%# roadカラムの内容 %>
   <div class="field">
     <%= f.label "タイトル" %><br />
