@@ -72,3 +72,4 @@ gem "jquery-rails"
 gem 'font-awesome-sass'
 gem "gretel"
 gem 'rails-i18n'
+gem 'kaminari'

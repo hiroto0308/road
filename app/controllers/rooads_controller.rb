@@ -4,7 +4,8 @@ class RooadsController < ApplicationController
   before_action :login_user, only: [:destroy, :edit]
 
   def index
-    @rooads = Rooad.includes(:user).order(created_at: :desc)
+    @rooads = Rooad.includes(:user).order(created_at: :desc).page(params[:page]).per(2)
+    # @rooads = Rooad.all.page(params[:page]).per(2)
     if user_signed_in?
       render :index
     else
