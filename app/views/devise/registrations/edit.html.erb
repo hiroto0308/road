@@ -2,12 +2,12 @@
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %> 
   <%= render 'layouts/error_messages', model: f.object %>
 <div class="field">
-    <%= f.label :nickname %><br />
+    <%= f.label :ニックネーム %><br />
      <%= f.text_field :nickname,  placeholder:"例) ゲスト", maxlength:"12" %>
   </div>
  
   <div class="field">
-    <%= f.label :profile %><br />
+    <%= f.label "プロフィール" %><br />
      <%= f.text_area :profile,  placeholder:"例) エンジニア歴1年です！", maxlength:"200" %>
   </div>
 
