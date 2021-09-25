@@ -13,4 +13,12 @@ class Rooad < ApplicationRecord
     validates :status_id, numericality: { other_than: 1, message: 'どちらか選択してください' }
   end
   validates :detail, length: { maximum: 1000 }
+
+  def self.search(keyword)
+    if keyword != ""
+      Rooad.where(["title like? OR detail like?", "%#{keyword}%", "%#{keyword}%"])
+    else
+      Rooad.all
+    end
+  end
 end
