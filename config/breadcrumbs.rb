@@ -21,3 +21,9 @@ crumb :edit do
   link "編集", edit_rooad_path
   parent :rooads
 end
+
+crumb :search do
+  link "検索結果", search_rooads_path
+  parent :rooads
+end
+

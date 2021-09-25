@@ -46,6 +46,9 @@ class RooadsController < ApplicationController
     redirect_to rooads_path
   end
 
+  def search
+    @rooads = Rooad.search(params[:keyword]).page(params[:page]).per(5)
+  end
   private
 
   def rooad_params
