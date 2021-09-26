@@ -9,7 +9,7 @@
  <p>学習状態：<%= @rooad.status.name %></p>
  <p>タイトル:<%= @rooad.title %></p>
  <%# 合計学習期間 %>
- <%# グラフ %>
+ <%= pie_chart @rooad.repetitions.group(:name).sum(:period), library: {title: {text: "合計日数<br> 【#{@rooad.repetitions.all.sum(:period)}日】"}} %>
 <%# いいね %>
   <div id="rooad_<%= @rooad.id %>">
   <%= render partial:'rooads/post', locals: { rooad: @rooad} %>
