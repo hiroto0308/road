@@ -5,7 +5,7 @@ class RooadsController < ApplicationController
 
   def index
     @rooads = Rooad.includes(:user).order(created_at: :desc).page(params[:page]).per(5)
-    # @rooads = Rooad.all.page(params[:page]).per(2)
+
     if user_signed_in?
       render :index
     else
