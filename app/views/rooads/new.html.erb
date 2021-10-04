@@ -1,21 +1,27 @@
 <% breadcrumb :new %>
+<div class="nickname_all">
+<p>〜<%= current_user.nickname %>さんログイン中〜</p>
+</div> 
 
 <div class="rooad-post">
   <%= form_with(model: @rooad, local: true) do |f| %>
-<%= render 'layouts/error_messages', model: f.object %>
-<%# roadカラムの内容 %>
+  <%= render 'layouts/error_messages', model: f.object %>
+ <%# roadカラムの内容 %>
+  <div class="road_new_text"><p>『作成するロードマップ』</p></div>
   <div class="field">
-    <%= f.label "タイトル" %><br />
-     <%= f.text_field :title, placeholder: "例)エンジニア転職までの道のり" %>
+    <%= f.label "タイトル", class: "form-none" %><br />
+     <%= f.text_field :title, placeholder: "例)エンジニア転職までの道のり", class: "form-control new-title" %>
   </div>
   <div class="field">
-    <%= f.label "学習状況" %><br />
-    <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"status-select"}) %>
+    <%= f.label "学習状況", class: "form-none" %><br />
+    <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"form-select status-select"}) %>
   </div>
 
-<%# /roadカラムの内容 %>
+  <div class="over"><p>学習期間は半角数字で入力してください</p></div>
 
-<%# フォームの内容 %>
+ <%# /roadカラムの内容 %>
+
+ <%# フォームの内容 %>
     <div class="repetition">
       <div class="mx-auto">
         <%= f.fields_for :repetitions do |t| %>
@@ -23,29 +29,29 @@
         <% end %>
       </div>
 
-      <div id="detail-association-insertion-point"></div>
+       <div id="detail-association-insertion-point"></div>
 
       <div class="col-10 mx-auto mt-2">
         <%= link_to_add_association "+フォームを追加", f, :repetitions,
-        class: "btn btn-secondary btn-block",
+        class: "button-5",
         data: {
         association_insertion_node: '#detail-association-insertion-point',
-        association_insertion_method: 'after'
+        association_insertion_method: 'before'
         }%>
       </div>
+     
     </div>
-<%# フォームの内容 %>
+ <%# フォームの内容 %>
 
-<%# roadカラムの内容 %>
+ <%# roadカラムの内容 %>
 <div class="field">
-    <%= f.label "詳細(1,000文字以内)" %><br />
-     <%= f.text_area :detail, placeholder: "例)1日平均8時間の学習をしました" %>
+    <%= f.label "詳細", class: "form-none" %><br />
+     <%= f.text_area :detail, rows:"6", placeholder: "例)1日平均8時間の学習をしました",class: "form-control repetition_detail" %>
   </div>
 <%# roadカラムの内容 %>
 
 <div class="sell-btn-contents">
-      <%= f.submit "投稿する"  %>
-      <%=link_to 'もどる', root_path %>
+      <%= f.submit "投稿する", class: "button-4"  %>
     </div>
   <% end %>
 </div>

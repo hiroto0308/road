@@ -1,45 +1,127 @@
   <% breadcrumb :show %>
-  <%# <p>/写真</p> %>
-  <% if @rooad.user.image.present? %> 
-  <%= link_to image_tag(@rooad.user.image, class: "card__img" ), root_path %>
- <% else %> 
-  <%= image_tag 'gesuto.png', class: "card__img" %>
- <% end %>
- <p>名前: <%=  @rooad.user.nickname %>さん</p> 
- <p>学習状態：<%= @rooad.status.name %></p>
- <p>タイトル:<%= @rooad.title %></p>
- <%# 合計学習期間 %>
- <%= pie_chart @rooad.repetitions.group(:name).sum(:period), library: {title: {text: "合計日数<br> 【#{@rooad.repetitions.all.sum(:period)}日】"}} %>
-<%# いいね %>
-  <div id="rooad_<%= @rooad.id %>">
-  <%= render partial:'rooads/post', locals: { rooad: @rooad} %>
-</div >
-<%# いいね %>
+  <div class="nickname_all">
+   <p>〜<%= current_user.nickname %>さんログイン中〜</p>
+  </div> 
 
-<%# 制作者のみ編集・削除 %>
-<% if  user_signed_in? && current_user.id == @rooad.user_id %>
-  <%= link_to  edit_rooad_path, class: "btn-danger", method: :get do %>
-   <i class="fas fa-edit edit-btn"></i>
-  <% end %>
+  <div class="road_show_form">
+    <div class="road_show_area">
+     <div class="user_area">
+      <%# <p>/写真</p> %>
+       <% if @rooad.user.image.present? %> 
+        <%= link_to image_tag(@rooad.user.image, class: "card__img" ), root_path %>
+       <% else %> 
+        <%= image_tag 'gesuto.png', class: "card__img" %>
+       <% end %>
+      <div class="user_show_nickname">
+       <p><%=  @rooad.user.nickname %>さん</p> 
+      </div>   
+     </div>
 
- <%= link_to  rooad_path, class: "btn-danger", method: :delete, data: {confirm: "本当に削除しますか？"} do %>
-  <i class="far fa-trash-alt delete-btn"></i>
- <% end %>
-<% end %>
-<%# /制作者のみ編集・削除 %>
+    <div class="title_status">
+     <div class="road_title_name">
+      <p><%= @rooad.title %></p>
+     </div>
 
-<%# フォーム(repetitions)繰り返し %>
- <h2>学習詳細</h2>
-<%  @rooad.repetitions.each do |rooad|%>
-  <p>学習内容: <%=  rooad.name %></p>
-  <p>学習期間: <%=  rooad.period %>日</p>
- <% if rooad.memo.present? %> 
-  <p>一言メモ: <%=  rooad.memo %></p>  
- <% end %>   
-<% end %>
-<%# /フォーム(repetitions)繰り返し %>
+     <div class="satus-btn" >
+      <div class="road_status_name">
+       <p><%= @rooad.status.name %></p> 
+      </div>
+    </div>    
+   </div>
+      
 
- <% if @rooad.detail.present? %> 
-<p>詳細:<%= @rooad.detail %></p>
-<% end %> 
+      <%# 合計学習期間 %>
+      
+      <div class="road_graph">
+       <%= pie_chart @rooad.repetitions.group(:name).sum(:period), library: {title: {text: "合計日数<br> 【#{@rooad.repetitions.all.sum(:period)}日】"}} %>
+      </div>
+      
 
+      <div class="like_edit">
+      
+      <%# 制作者のみ編集・削除 %>
+      <% if  user_signed_in? && current_user.id == @rooad.user_id %>
+        <%= link_to  edit_rooad_path, class: "btn-danger", method: :get do %>
+        <i class="fas fa-edit edit-btn"></i>
+        <% end %>
+
+      <%= link_to  rooad_path, class: "btn-danger", method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+        <i class="far fa-trash-alt delete-btn"></i>
+      <% end %>
+      <% end %>
+      <%# /制作者のみ編集・削除 %>
+      <%# いいね %>
+        <div id="rooad_<%= @rooad.id %>">
+        <%= render partial:'rooads/post', locals: { rooad: @rooad} %>
+      </div >
+      <%# いいね %>
+      </div >
+
+      <%# フォーム(repetitions)繰り返し %>
+      <div class="box8">
+       <p>学習内容</p>
+      </div>
+     
+      <%  @rooad.repetitions.each do |rooad|%>
+      
+      <div class="show_all">
+       <div class="show_name_period">
+        <p><%=  rooad.name %></p>
+        <p><%=  rooad.period %>日</p>
+       </div>
+      <% if rooad.memo.present? %> 
+        <div class="show_memo">
+         <p>: <%=  rooad.memo %></p> 
+        </div> 
+      <% end %>  
+      </div>
+      <% end %>
+      <%# /フォーム(repetitions)繰り返し %>
+
+      <% if @rooad.detail.present? %> 
+      <div class="box8">
+       <p>詳細</p>
+      </div>
+      <div class="show_detail">
+       <%=safe_join(@rooad.detail.split("\n"),tag(:br))%>
+      </div>
+      <% end %> 
+
+     <%# ユーザー情報 %>
+      <div class="box8">
+       <p>ユーザー情報</p>
+      </div>
+
+     <div class="show_bottom">
+       <p>年齢</p>
+      <% if @rooad.user.area.present? %>
+        <p><%=  @rooad.user.area.name %>歳</p>
+      <% else %>
+        <p>ー</p> 
+      <% end %> 
+     </div>
+
+     <div class="show_bottom">
+      <p>性別</p>
+      <% if @rooad.user.gender.present? %> 
+        <p><%=  @rooad.user.gender.name %></p>
+      <% else %>
+        <p>ー</p>
+      <% end %> 
+     </div>
+
+     <div class="show_bottom">
+      <p>詳細</p>
+      <% if @rooad.user.profile.present? %> 
+        <%=safe_join(@rooad.user.profile.split("\n"),tag(:br))%>
+      <% else %>
+        <p>ー</p>
+      <% end %> 
+     </div>
+
+  </div> 
+ </div>
+
+
+
+   
