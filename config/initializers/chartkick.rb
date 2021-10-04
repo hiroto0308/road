@@ -1,10 +1,24 @@
 Chartkick.options = {
   donut: true, # ドーナツグラフ
-  width: '400px',
-  colors: [ "#769fcd",
-            "#b9d7ea",
-            "#d6e6f2",
-            "#f7fbfc",
+  width: '300px',
+  colors: [ "#eb8b74",
+    "#f3bdb0",
+    "#FABC96",
+    "#FAD19E",
+    "#FAE0A7",
+    "#FAEFBE",
+    "#F6E7BE",
+    "#F7EAC6",
+    "#F8EDCE",
+    "#F9F0D6",
+    "#FAF3DE",
+    "#FBF6E6",
+    "#FCF9EE",
+    "#FDFCF6",
+    "#FBFADF",
+    "#FBFADF",
+    "#FBFADF",
+    "#FBFADF",
           ],
   message: {empty: "データがありません"},
   thousands: ",", 
@@ -19,6 +33,7 @@ Chartkick.options = {
       backgroundColor: 'none',
       plotBorderWidth: 0, 
       plotShadow: false
+      
     },
     plotOptions: {
       pie: {
@@ -28,6 +43,7 @@ Chartkick.options = {
           allowOverlap: false, # ラベルが重なったとき、非表示にする
           style: { #ラベルフォントの設定
             color: '#555', 
+            fontWeight: 300,
             textAlign: 'center', 
             textOutline: 0, #デフォルトではラベルが白枠で囲まれていてダサいので消す
           }
