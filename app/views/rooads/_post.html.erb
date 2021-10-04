@@ -5,14 +5,18 @@
            <%= link_to  destroy_like_path(rooad), class: "like-link", method: :DELETE, remote: true do %>
             <i class="fa fa-heart unlike-btn"></i>
            <% end %>
-           <%= rooad.likes.count %>
+           
+            <%= rooad.likes.count %>
+           
           </td>
         <% else %>
           <td>
            <%= link_to  create_like_path(rooad), class: "like-link", method: :POST, remote: true do %>
             <i class="far fa-heart like-btn"></i>
            <% end %>
-           <%= rooad.likes.count %>
+           
+            <%= rooad.likes.count %>
+           
           </td>
         <% end %>
 
