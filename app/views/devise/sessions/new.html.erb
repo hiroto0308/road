@@ -1,30 +1,30 @@
-<h2>Log in</h2>
- <div class='login-flash-message'>
-      <%= flash[:notice] %>
-      <%= flash[:alert] %>
+<div class="form-area"> 
+  <h4>ログイン</h4>
+  <div class='login-flash-message'>
+        <%= flash[:notice] %>
+        <%= flash[:alert] %>
+  </div>
+
+  <div class="form-page">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+      <div class="field">
+        <%= f.label :メールアドレス, class: "form-message" %><br />
+        <%= f.email_field :email, autofocus: true, placeholder:"example@exmple.com", class: "form-control sessions-form" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, class: "form-message" %><br />
+        <%= f.password_field :password, placeholder:"パスワード", class: "form-control  sessions-form" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "ログイン", class: "button-4" %>
+      </div>
+    <% end %>
+    
+    <div class="registrations-page">
+     <%= link_to '＋新規登録はこちら',  new_user_registration_path %>
     </div>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<%= render 'layouts/error_messages', model: f.object %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
-  </div>
-<% end %>
-
-
+</div> 

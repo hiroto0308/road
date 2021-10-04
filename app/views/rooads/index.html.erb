@@ -1,14 +1,25 @@
 <% breadcrumb :rooads %>
-<%= link_to 'イベント投稿',  new_rooad_path %>
-<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %> 
-<%= link_to 'ユーザー編集', edit_user_registration_path %> 
+<div class="nickname_all">
+<p>〜<%= current_user.nickname %>さんログイン中〜</p>
+</div> 
 
-<%= form_with(url: search_rooads_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+ <%= image_tag 'touka.png', class: "index_kawauso" %>
+<div class="new_text_form">
+ <%= link_to '新規作成',  new_rooad_path, class: "button-20"  %>
+</div> 
+<div class="search_form">
+<%= form_with(url: search_rooads_path, local: true, method: :get, class: "search_container") do |form| %>
+  <%= form.text_field :keyword, placeholder: "キーワード検索", class: "search-input" %>
   <%= form.submit "検索", class: "search-btn" %>
 <% end %>
-
-<h1>口コミ一覧</h1>
+</div>
+<div class="page_top" >
+  <%= paginate @rooads %>
+ </div >
 
 <%= render partial:'rooads/contents', locals: { rooad: @rooad} %>
 
+ <div class="page" >
+  <%= paginate @rooads %>
+ </div >
+<%= link_to 'ロードマップ作成',  new_rooad_path, class: "btn-circle-stitch"  %>

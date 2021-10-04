@@ -1,0 +1,100 @@
+// ボタン
+$color-btn-4: #ffa200ba;
+$color-btn-4-font: #ffffff;
+$color-text-font: rgba(33, 33, 31, 0.732);
+.form-area{
+  width: 450px;
+  height: auto;
+  background-color: #ffffff;
+  margin: auto;
+  margin-top: 85px;
+  box-shadow: 0 8px 20px 0 rgba(60, 194, 235, 0.5);
+  border-radius: 10px;
+  padding-bottom: 30px;
+  h4{
+    padding: 33px 0 60px 0;
+    text-align: center;
+  }
+}
+
+
+
+.button-4 {
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  color: $color-btn-4-font;
+  text-decoration: none;
+  user-select: none;
+  background: $color-btn-4;
+  border: 1px $color-btn-4 solid;
+  border-radius: 3px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+  transition: 0.2s ease;
+  width: 360px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.button-4:hover {
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
+}
+
+.actions {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.sessions-form{
+  width: 380px;
+  height: 40px;
+}
+
+.form-page{
+  margin: auto;
+  width: 380px;
+}
+
+.field{
+  margin: 20px 0;
+  .form-message {
+  color: $color-text-font;
+  font-size: 12px;
+  font-weight: lighter;
+  }
+}
+
+.registrations-page{
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.login-flash-message{
+  font-size: 15px;
+  width: 380px;
+  color: #CC0033;
+  border: none;
+  padding-left: 30px;
+}
+
+@media screen and (max-width: 480px) {
+.form-area{
+  width: 90vw;
+}
+.sessions-form{
+  width: 80vw;
+}
+.button-4{
+  width: 80vw;
+}
+
+.form-page{
+  width: 80vw;
+}
+.login-flash-message{
+  width: 80vw;
+}
+}

@@ -1,34 +1,499 @@
 // Place all the styles related to the rooads controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// $color-all: #F4F5F7;
+$color-all: #F9F8F4;
+$color-btn: #FA9797;
+$color-header-h1: rgba(33, 33, 31, 0.632);
+$color-btn-5: #98c1fa;
+$color-btn-5-font: #ffffff;
+$color-btn-18: #ffa200ba;
+
 .form-control{
   width: auto;
 }
 
-.ko{
-  padding-left: 16px;
-  width: auto;
+.index_kawauso{
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: auto;
 }
+
+// 検索
+.search_form{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+.search_container{
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #999;
+  display: block;
+  border-radius: 5px;
+  height: 4em;
+  width: 205px;
+  overflow: hidden;
+  color: $color-header-h1;
+  display: flex;
+}
+.search-input{
+  border: none;
+  height: 3.7em;
+  font-size: 14px;
+  width: 70%;
+  padding-bottom: 10px;
+}
+.search-input:focus {
+  outline: 0;
+}
+.search-btn{
+  cursor: pointer;
+  font-family: FontAwesome;
+  border: none;
+  background: #ffa200ba;
+  color: #fff;
+  position: absolute;
+  width: 5em;
+  height: 4.2em;
+  right:0px;
+  top: -3px;
+  outline : none;
+  font-size: 12px;
+}
+.search_show{
+  // margin-left: 20px;
+  text-align: center;
+}
+
+// 新規作成ボタン
+.new_text_form{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.button-20{
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 1.8em;
+  color: $color-btn-5-font;
+  text-decoration: none;
+  user-select: none;
+  background: #f79428;
+  border: 1px #f79428 solid;
+  border-radius: 3px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+  transition: 0.2s ease;
+  margin: 5px 20px;
+  border-radius:30px;
+  font-weight: 700;
+}
+
+
 
 // 削除・編集ボタン
 .btn-danger {
   text-decoration: none;
-  background-color: #fff!important;
+  background-color: $color-all!important;
 }
 
 .edit-btn {
   font-size: 35px;
-  color: #FA9797;
+  color: $color-btn;
 }
  
 .delete-btn {
   font-size: 35px;
-  color: #FA9797;
+  color: $color-btn;
 }
 
 // トップページ/ユーザー画像
 .card__img {
   border-radius: 50%;  
   width:  90px;       
-  height: 90px;      
+  height: 90px;  
+ 
+}
+
+
+
+.pagination {
+  justify-content: center;
+}
+
+
+// 固定ボタン
+@media screen and (max-width: 801px) {
+  .btn-circle-stitch {
+    display: none;
+  }
+}
+@media screen and (min-width: 800px) {
+.btn-circle-stitch {
+  display: inline-block;
+  text-decoration: none;
+  background: #87befd;
+  color: #FFF;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px 5px #87befd;
+  border: dashed 1px #FFF;
+  transition: .4s;
+  position: fixed;
+  bottom: 65px; 
+  right: 20px;
+  font-size: 14px;
+  margin-right: 30px;
+}
+
+.btn-circle-stitch:hover {
+  background: #668ad8;
+  box-shadow: 0px 0px 0px 5px #668ad8;
+}
+
+}
+
+// Roods_new
+.rooad-post{
+  width: 450px;
+  height: auto;
+  background-color: #ffffff;
+  margin: auto;
+  margin-top: 85px;
+  box-shadow: 0 4px 20px 0 #DEC8B1;
+  border-radius: 10px;
+  padding: 50px 0;
+}
+
+.status-select {
+  width: 380px;
+  margin-left: 30px;
+}
+
+.over{
+  border-top: 5px outset #DCDCDC;
+  padding: 20px 0 25px 0;
+  width: 380px;
+  margin: auto;
+  text-align: center;
+  font-size: 14px;
+  color: #f77728;
+}
+
+.new-title{
+  width: 380px;
+  margin-left: 30px;
+}
+
+.repetition_new{ 
+  width: 340px;
+}
+
+.repetition_detail{
+  width: 380px;
+  margin: auto;
+}
+
+.form-none{
+  color: $color-header-h1;
+  font-size: 12px;
+  padding-left: 35px;
+}
+
+.repetition_fields_all{
+  margin-bottom: 10px;
+}
+
+.sell-btn-contents{
+  text-align: center;
+}
+
+// 削除ボタン
+.delete-icon{
+  color: #f79428;
+  font-size: 23px;
+  width: 40px;
+  padding: 95px 0 0 10px;
+}
+
+
+.act{
+  display: flex;
+}
+
+.nested-fields{
+  border-bottom: 1px dashed #BBBBBB;
+  width: 380px;
+  margin: auto;
+ margin-bottom: 30px;
+}
+
+.button-5 {
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 1.8em;
+  color: $color-btn-5-font;
+  text-decoration: none;
+  user-select: none;
+  background: $color-btn-5;
+  border: 1px $color-btn-5 solid;
+  border-radius: 3px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+  transition: 0.2s ease;
+  margin: 5px 20px;
+  border-radius:30px;
+
+  &:hover{
+    color: $color-btn-5-font;
+    text-decoration: none;
+  }
+  &:active{
+    color: $color-btn-5-font;
+    text-decoration: none;
+  }
+  
+  &:visited{
+    color: $color-btn-5-font;
+    text-decoration: none;
+  }
+}
+
+.road_new_text{
+  font-size: 15px;
+  text-align: center;
+  color: #666666;
+}
+
+@media screen and (max-width: 480px) {
+  .rooad-post{
+    width: 90vw;
+  }
+  .status-select {
+    width: 80vw;
+    margin-left: 20px;
+  }
+  .over{
+    width: 80vw;
+  }
+  .new-title{
+    width: 80vw;
+    margin-left: 20px;
+  }
+  .repetition_new{ 
+    width: 72vw;
+  }
+  
+  .repetition_detail{
+    width: 80vw;
+  }
+  .nested-fields{
+    width: 80vw;
+  }
+}
+
+// road_show
+.road_show_form{
+  width: 720px;
+  height: auto;
+  background-color: #ffffff;
+  margin: auto;
+  margin-top: 75px;
+  box-shadow: 0 4px 20px 0 #DEC8B1;
+  border-radius: 30px;
+  padding-bottom: 30px;
+  border-top: solid 10px #FFCC33;
+}
+
+.road_show_area{
+  width: 670px;
+  margin: auto;
+  margin-top: 25px;
+}
+
+.user_area{
+  display: flex;
+  border-bottom: dashed 1px #FFCC33;
+  padding-bottom: 10px;
+}
+.user_show_nickname{
+  padding: 35px 0 0 13px;
+  font-size: 22px;
+}
+
+.box8 {
+  padding: 14px 28px;
+  margin: 15px 0;
+  color: $color-header-h1;
+  background: #fff8e8;
+  font-size: 25px;
+}
+.box8 p {
+  margin: 0; 
+  padding: 0;
+}
+
+.show_name_period{
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  color: #666666 ;
+}
+
+.show_memo{
+  color: #999999;
+}
+
+.show_all{
+  border-bottom: dashed 1px #FFCC33;
+  margin: 10px 14px 0;
+}
+
+.show_bottom{
+  border-bottom: dashed 1px #FFCC33;
+  margin: 10px 14px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.show_detail{
+  font-size: 13px;
+  margin: 0 14px;
+}
+
+@media screen and (max-width: 800px) {
+  .road_show_form{
+   width: 90vw;
+  }
+  .road_show_area{
+    width: 85vw;
+    margin-top: 15px;
+  }
+}
+
+// グラフのサイズ強制的に修正
+// @media screen and (max-width: 450px) {  
+  //  #chart{
+  //   width: 80vw!important;
+  // }
+// }
+
+// .highcharts-container{
+//   width: 80vw!important;
+// }  
+
+.highcharts-root{
+  
+  margin: 0 auto;
+  display:block
+     } 
+
+.road_graph{
+  display: flex;
+  justify-content: center;
+  
+  // margin-left: 100px;
+}
+
+// 一覧ページ
+.index_contents{
+  width: 720px;
+  height: auto;
+  background-color: #ffffff;
+  margin: auto;
+  box-shadow: 0 4px 20px 0 #DEC8B1;
+  border-radius: 30px;
+  padding-bottom: 30px;
+  border-top: solid 10px #FFCC33;
+  margin-bottom: 30px;
+}
+
+.index_contents_form{
+  width: 670px;
+  margin: auto;
+  margin-top: 25px;
+}
+@media screen and (max-width: 800px) {
+  .index_contents{
+   width: 90vw;
+  }
+  .index_contents_form{
+    width: 85vw;
+    margin-top: 15px;
+  }
+  
+}
+@media screen and (max-width: 600px) {
+  .road_title_name p{
+    font-size: 10px;
+    margin: 10px 0 10px 0;
+  }
+}
+.road_status_name{
+  color: #fff;
+  background-color: #f79428;
+  display: inline-block;
+  padding: 5px 17px 0;
+  font-size: 13px;
+  text-decoration: none;
+  user-select: none;
+  border: 1px $color-btn-18 solid;
+  border-radius: 3px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+  transition: 0.2s ease;
+  margin: 20px 10px;
+  border-radius:10px;
+}
+
+.road_title_name{
+  font-size: 18px;
+  margin: 20px 0 10px 30px;
+}
+
+// .satus-btn{
+//    text-align: right;
+// }
+
+.title_status{
+  display: flex;
+  justify-content: space-between;
+}
+
+.like_edit{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-danger{
+  margin-right: 10px;
+}
+
+.button-19{
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 1.8em;
+  color: $color-btn-5-font;
+  text-decoration: none;
+  user-select: none;
+  background: $color-btn-18;
+  border: 1px $color-btn-18 solid;
+  border-radius: 3px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+  transition: 0.2s ease;
+  margin: 5px 20px;
+  border-radius:30px;
+}
+
+.button_show_index{
+ text-align: center; 
+ border-top: dashed 1px #FFCC33;
+ margin-top: 10px;
+ padding-top: 10px;
 }

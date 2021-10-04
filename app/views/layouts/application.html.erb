@@ -11,13 +11,55 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
-   
+    <link rel="stylesheet" href="reset.css">
+
   </head>
 
   <body>
-    <%= breadcrumbs separator: " &rsaquo; " %>   
+
+   <header class="header-3">
+  <div class="header-inner">
+    <div class="logo">
+      <h1 class="grid-6">Roooad</h1>
+    </div>
+
+<%# ハンバーガーメニュー %>
+<p class="btn-gnavi">
+        <span></span>
+        <span></span>
+        <span></span>
+      </p>
+      
+      <nav id="global-navi">
+        <ul class="menu">
+        <% if user_signed_in? %>
+          <li><%= link_to 'ロードマップ作成',  new_rooad_path %></li>
+          <li><%= link_to 'ユーザー編集', edit_user_registration_path %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %> </li>
+        <% else %>
+          <li><%= link_to 'ログイン',  new_user_session_path %></li> 
+        <% end %>
+        <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </nav>
+<%# /ハンバーガーメニュー %>
+
+  
+  </div>
+</header>
+
+
+<div class="back-coler">
+ <%= breadcrumbs separator: " &rsaquo; " %>  
+
     <%= yield %>
+</div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <footer class="footer">
+	   <div class="container text-center">
+	    <p class="text-muted">©︎<?php echo $year;?> 2021 Roooad</p>
+     </div>
+    </footer>
   </body>
 </html>

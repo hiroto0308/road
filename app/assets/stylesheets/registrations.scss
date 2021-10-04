@@ -1,0 +1,102 @@
+$color-text-font: rgba(33, 33, 31, 0.732);
+
+.form_registrations{
+  width: 450px;
+  height: auto;
+  background-color: #ffffff;
+  margin: auto;
+  margin-top: 85px;
+  box-shadow: 0 8px 20px 0 rgba(60, 194, 235, 0.5);
+  border-radius: 10px;
+  padding-bottom: 30px;
+  h4{
+    padding: 33px 0 60px 0;
+    text-align: center;
+  }
+}
+
+.form_page_new {
+  margin: auto;
+  width: 380px;
+}
+
+
+
+.field{
+  margin: 20px 0; 
+  color: $color-text-font
+}
+
+.any {
+  margin: auto;
+  h5{
+    text-align: center;
+    padding: 30px 0  10px 0;   
+    border-top: 1px ridge #808080;
+    color: $color-text-font;
+  }
+}
+
+.illustration{
+  text-align: center;
+}
+
+.error-message {
+  font-size: 15px;
+  width: 300px;
+  color: #CC0033;
+  border: none;
+}
+
+.gesuto-registration{
+  text-align: center;
+}
+
+// ユーザー編集ページ
+.form_registrations_edit{
+  width: 450px;
+  height: auto;
+  background-color: #ffffff;
+  margin: auto;
+  margin-top: 85px;
+  box-shadow: 0 8px 20px 0 rgba(60, 194, 235, 0.5);
+  border-radius: 10px;
+  padding-bottom: 30px;
+  h4{
+    padding: 33px 0 60px 0;
+    text-align: center;
+  }
+}
+
+.form_page_edit {
+  margin: auto;
+  width: 380px;
+}
+
+.edit_user_image {
+  text-align: center;
+}
+
+.gesuto-edit{
+  margin: auto;
+}
+
+@media screen and (max-width: 480px) {
+  .form_registrations{
+    width: 90vw;
+  }
+  .error-message {
+    font-size: 15px;
+    width: 80vw;
+  }
+  .form_page_new {
+    margin: auto;
+    width: 80vw;
+  }
+  .form_registrations_edit{
+    width: 90vw;
+  }
+  .form_page_edit {
+    width: 80vw;
+  }
+}

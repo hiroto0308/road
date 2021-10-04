@@ -1,10 +1,48 @@
-<h1>Roooad</h1>
-<% breadcrumb :root %>
-<% if user_signed_in? %>
 
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %> </li>
-      <% else %>
-        <%= link_to '新規登録',  new_user_registration_path %>
-<%= link_to 'ログイン',  new_user_session_path %>
-<%= link_to 'ゲストログイン',   users_guest_sign_in_path, method: :post %>
-      <% end %>
+
+<% breadcrumb :root %>
+
+<%= image_tag 'touka.png', class: "test" %>
+
+<div class="road-detail" >
+<p class="road ">Roooadってなに？</p>
+<p >プログラミングのロードマップを作成するサービスです！</p>
+<p >正しい手順で、学習を最短に。</p>
+</div>
+
+
+<div class="static-btn" >
+ <%= link_to '新規登録',   new_user_registration_path, class: "button-18" %>
+  <%= link_to 'ログイン',  new_user_session_path, class: "button-18" %>
+<%= link_to 'ゲストログイン',   users_guest_sign_in_path, method: :post, class: "button-18" %>
+</div >
+
+<div class="how-user">
+  <p>▷ How To Use </p>
+</div>
+
+
+<div class="box22">
+    <div class="show-font">
+    <p class="road "> ▷ユーザー登録しよう！</p>
+    <p class="road-show">ユーザー登録をしてから、アプリを利用してください。</p>
+    <p class="road-show">登録が面倒な方は、ゲストログインでアプリが利用できます。</p>  
+  </div>
+</div>
+
+<div class="box22">
+    <div class="show-font">
+    <p class="road"> ▷ロードマップを投稿</p>
+    <p class="road-show">公開するロードマップを作成してみましょう。</p>
+    <p class="road-show">プログラミング学習の流れが明確になったり、他の方への参考になります！</p>  
+  </div>
+</div>
+
+<div class="box22">
+    <div class="show-font">
+    <p class="road "> ▷皆のロードマップをみる</p>
+    <p class="road-show">学習を始める前に、自分の目標に近いロードマップを探しましょう。</p>
+    <p class="road-show">皆のロードマップを参考にして、効率良くで学習できます！</p>  
+  </div>
+</div>
+

@@ -18,23 +18,52 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-/*ページネーション自体のデザイン*/
-.pagination>li>a {          
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
+$color-all: #F9F8F4;
+body {
+  background-color: $color-all;
 }
 
-/* 表示しているページ番号のデザイン */
-.pagination>.active>a {     
-  background: #93c9ff;     /*背景の色を変える*/
-  border-radius: 15px;     /*角を丸くする*/
+
+// パンくず
+.breadcrumbs {
+  display:flex;
+  font-size: 15px;
+  margin: 20px 0 7px 10px;
+   a{
+     color: #444444;
+   }
+   span{
+    color: #666666;
+   }
 }
 
-/*ホバー時のデザイン*/
-.pagination>li>a:hover {        
-  border-radius: 15px;    /*角を丸くする*/
+.nickname_all{
+  font-size: 12px;
+  margin-left: 20px;
+  color: #FF6E00;
 }
 
-.pagination {
-  justify-content: center;
+.page{
+  text-align: center;
+  margin-top: 40px;
 }
+
+.page_top{
+  text-align: center;
+}
+
+ul.pagination li .page-link{
+  border-radius: 50%;
+  border: none;
+  background-color: #F9F8F4;
+  margin: 0 3px;
+}
+
+ul.pagination li.active .page-link{
+  border-radius: 50%;
+  background-color: #FFA500;
+  color: white;
+  border: none;
+}
+
+
