@@ -9,6 +9,8 @@ require("channels")
 require('jquery')
 require("@nathanvda/cocoon")
 require('../preview') 
+require('../header') 
+require('../chart') 
 require("chartkick").use(require("highcharts"))
 
 
