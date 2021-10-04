@@ -1,24 +1,20 @@
 <div class="nested-fields">
-  <div class="row mx-auto">
-  
-     <div class="col-5">
-    <%= f.label "学習内容(30文字まで)",class:"ko" %>
-    <%= f.text_field :name, class: "form-control", placeholder: "例)Progate/HTML&CSS" %>
+  <div class="act">
+
+   <div class="box_delete">
+    <div class="repetition_fields_all">
+      <%= f.text_field :name, class: "form-control repetition_new", placeholder: "学習内容(最大30文字)" %>
+    </div>
+    <div class="repetition_fields_all">
+     <%= f.text_field :period, class: "form-control repetition_new", placeholder: "学習期間(最大100日)" %>
+    </div>
+    <div class="repetition_fields_all">
+     <%= f.text_field :memo, class: "form-control repetition_new", placeholder: "メモ(最大30文字)" %>
+    </div>
    </div>
 
-     <div class="col-5">
-     <%= f.label "学習期間(半角数字・100日以内)",class:"ko" %>
-     <%= f.text_field :period, class: "form-control", placeholder: "例)12" %>
-    </div>
-
-    <div class="col-5">
-    <%= f.label "一言メモ(30文字まで)",class:"ko" %>
-     <%= f.text_field :memo, class: "form-control", placeholder: "例)教材費1ヶ月1,000円" %>
-    </div>
-
-    <div class="offset-1 col-1 px-0 w-auto">
-      <%= link_to_remove_association "削除", f, class: "btn btn-secondary btn-block" %>
-    </div>
-
+   <div class="box_delete">
+      <%= link_to_remove_association "", f, class: "fas fa-backspace delete-icon" %>
+   </div>
   </div>
 </div>

@@ -1,39 +1,57 @@
 <% @rooads.each do |rooad|%>
- 
- <% if rooad.user.image.present? %> 
-  <%= link_to image_tag(rooad.user.image, class: "card__img" ), root_path %>
- <% else %>
-  <%= image_tag 'gesuto.png', class: "card__img" %>
- <% end %>
- <p>名前: <%=  rooad.user.nickname %>さん</p> 
- <p>学習状態：<%= rooad.status.name %></p>
- <p>＜ロードマップ公開中＞</p> 
- <p>タイトル:<%= rooad.title %></p>
+ <div class="index_contents">
+  <div class="index_contents_form">
 
- <%# グラフ %>
-    
-  <%= pie_chart rooad.repetitions.group(:name).sum(:period), library: {title: {text: "合計日数<br> 【#{rooad.repetitions.all.sum(:period)}日】"}} %>
+   <div class="user_area">
+    <% if rooad.user.image.present? %> 
+      <%= link_to image_tag(rooad.user.image, class: "card__img" ), root_path %>
+    <% else %>
+      <%= image_tag 'gesuto.png', class: "card__img" %>
+    <% end %>
+    <div class="user_show_nickname">
+      <p><%=  rooad.user.nickname %>さん</p> 
+    </div>
+   </div>
 
- <div id="rooad_<%= rooad.id %>">
-  <%= render partial:'rooads/post', locals: { rooad: rooad} %>
- </div >
 
- <%# 制作者のみ編集・削除 %>
- <% if  user_signed_in? && current_user.id == rooad.user_id %>
-   <%= link_to  edit_rooad_path(rooad.id), class: "btn-danger", method: :get do %>
-    <i class="fas fa-edit edit-btn"></i>
-   <% end %>
+   <div class="title_status">
+     <div class="road_title_name">
+      <p><%= rooad.title %></p>
+     </div>
 
-   <%= link_to  rooad_path(rooad.id), class: "btn-danger", method: :delete, data: {confirm: "本当に削除しますか？"} do %>
-    <i class="far fa-trash-alt delete-btn"></i>
-   <% end %>
-  <% end %>
- <%# /制作者のみ編集・削除 %>
- <%= link_to 'もっと見る',  rooad_path(rooad.id) %>
- 
+     <div class="satus-btn" >
+      <div class="road_status_name">
+       <p><%= rooad.status.name %></p> 
+      </div>
+    </div>    
+   </div>
+    <%# グラフ %>
+    <div class="road_graph"> 
+      <%= pie_chart rooad.repetitions.group(:name).sum(:period), library: {title: {text: "合計日数<br> 【#{rooad.repetitions.all.sum(:period)}日】"}} %>
+    </div>
+   <div class="like_edit"> 
+    <%# 制作者のみ編集・削除 %>
+    <% if  user_signed_in? && current_user.id == rooad.user_id %>
+      <%= link_to  edit_rooad_path(rooad.id), class: "btn-danger", method: :get do %>
+        <i class="fas fa-edit edit-btn"></i>
+      <% end %>
+
+      <%= link_to  rooad_path(rooad.id), class: "btn-danger", method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+        <i class="far fa-trash-alt delete-btn"></i>
+      <% end %>
+    <% end %>
+    <%# /制作者のみ編集・削除 %>
+    <div id="rooad_<%= rooad.id %>">
+      <%= render partial:'rooads/post', locals: { rooad: rooad} %>
+    </div >
+   </div>
+   <div class="button_show_index" >
+    <%= link_to 'もっと見る',  rooad_path(rooad.id), class: "button-19" %>
+   </div>
+
+   </div>
+  </div>
 <% end %>
 
-<div class="page" >
-  <%= paginate @rooads %>
- </div >
+
 
