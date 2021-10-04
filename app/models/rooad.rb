@@ -9,7 +9,7 @@ class Rooad < ApplicationRecord
   belongs_to :status
 
   with_options presence: true do
-    validates :title, length: { maximum: 30 }
+    validates :title, length: { maximum: 20 }
     validates :status_id, numericality: { other_than: 1, message: 'どちらか選択してください' }
   end
   validates :detail, length: { maximum: 1000 }
