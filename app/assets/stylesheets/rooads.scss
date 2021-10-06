@@ -103,11 +103,13 @@ $color-btn-18: #ffa200ba;
 .edit-btn {
   font-size: 35px;
   color: $color-btn;
+  background-color: $color-btn-5-font;
 }
  
 .delete-btn {
   font-size: 35px;
   color: $color-btn;
+  background-color: $color-btn-5-font;
 }
 
 // トップページ/ユーザー画像
@@ -378,16 +380,6 @@ $color-btn-18: #ffa200ba;
   }
 }
 
-// グラフのサイズ強制的に修正
-// @media screen and (max-width: 450px) {  
-  //  #chart{
-  //   width: 80vw!important;
-  // }
-// }
-
-// .highcharts-container{
-//   width: 80vw!important;
-// }  
 
 .highcharts-root{
   
@@ -398,7 +390,7 @@ $color-btn-18: #ffa200ba;
 .road_graph{
   display: flex;
   justify-content: center;
-  
+
   // margin-left: 100px;
 }
 
@@ -432,7 +424,7 @@ $color-btn-18: #ffa200ba;
 }
 @media screen and (max-width: 600px) {
   .road_title_name p{
-    font-size: 10px;
+    font-size: 12px;
     margin: 10px 0 10px 0;
   }
 }
@@ -457,9 +449,6 @@ $color-btn-18: #ffa200ba;
   margin: 20px 0 10px 30px;
 }
 
-// .satus-btn{
-//    text-align: right;
-// }
 
 .title_status{
   display: flex;
