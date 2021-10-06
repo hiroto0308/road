@@ -78,3 +78,4 @@ gem 'rails-i18n'
 gem 'kaminari'
 gem "chartkick"
 gem 'pry-rails'
+gem "aws-sdk-s3", require: false
