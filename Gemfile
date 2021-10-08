@@ -61,7 +61,7 @@ group :development do
 end
 
 group :production do
-  gem 'rails_12factor'
+  gem 'unicorn', '5.4.1'
   gem 'pg'
 end
 
@@ -79,3 +79,5 @@ gem 'kaminari'
 gem "chartkick"
 gem 'pry-rails'
 gem "aws-sdk-s3", require: false
+gem 'rails_admin', '~> 2.0'
+gem 'cancancan'
