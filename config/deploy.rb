@@ -2,7 +2,7 @@
 lock '3.16.0'
 
 # Capistranoのログの表示に利用する
-set :application, 'roooad'
+set :application, 'road'
 
 # どのリポジトリからアプリをpullするかを指定する
 set :repo_url,  'git@github.com:hiroto0308/road.git'
