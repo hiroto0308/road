@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: road_production
-  username: road
-  password: <%= ENV['ROAD_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
