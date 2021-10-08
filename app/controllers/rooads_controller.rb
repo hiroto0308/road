@@ -4,8 +4,8 @@ class RooadsController < ApplicationController
   before_action :login_user, only: [:destroy, :edit]
 
   def index
-    @rooads = Rooad.includes(:user).order(created_at: :desc).page(params[:page]).per(5)
-
+    @rooads = Rooad.includes(:user).order(created_at: :desc)
+    @rooads = Kaminari.paginate_array(@rooads).page(params[:page]).per(5)
     if user_signed_in?
       render :index
     else
