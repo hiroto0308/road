@@ -79,3 +79,5 @@ gem 'kaminari'
 gem "chartkick"
 gem 'pry-rails'
 gem "aws-sdk-s3", require: false
+gem 'rails_admin', '~> 2.0'
+gem 'cancancan'
