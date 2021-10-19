@@ -1,6 +1,6 @@
 class Area < ActiveHash::Base
   self.data = [
-    { id: 1, name: '未設定' },
+    { id: 1, name: 'ー' },
     { id: 2, name: '〜15' },
     { id: 3, name: '16〜20' },
     { id: 4, name: '21〜25' },
