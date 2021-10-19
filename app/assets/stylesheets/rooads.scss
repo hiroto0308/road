@@ -120,8 +120,6 @@ $color-btn-18: #ffa200ba;
  
 }
 
-
-
 .pagination {
   justify-content: center;
 }
@@ -370,6 +368,16 @@ $color-btn-18: #ffa200ba;
   font-size: 14px;
   margin: 0 14px;
   color: #666666 ;
+  overflow-wrap: break-word;
+}
+.show_user_show{
+  overflow-wrap: break-word;
+  width: 50vw;
+}
+@media screen and (min-width: 800px) {
+  .show_user_show{
+    width: 40vw;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -424,6 +432,8 @@ $color-btn-18: #ffa200ba;
   }
   
 }
+
+
 @media screen and (max-width: 600px) {
   .road_title_name p{
     font-size: 12px;
@@ -487,4 +497,11 @@ $color-btn-18: #ffa200ba;
  border-top: dashed 1px #FFCC33;
  margin-top: 10px;
  padding-top: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .road_title_name{
+    overflow-wrap: break-word;
+    width: 50vw;
+  }
 }

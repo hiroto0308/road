@@ -113,7 +113,9 @@
      <div class="show_bottom">
       <p>詳細</p>
       <% if @rooad.user.profile.present? %> 
+       <div class="show_user_show">
         <%=safe_join(@rooad.user.profile.split("\n"),tag(:br))%>
+       </div>
       <% else %>
         <p>ー</p>
       <% end %> 
