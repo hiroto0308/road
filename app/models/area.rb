@@ -13,7 +13,7 @@ class Area < ActiveHash::Base
     { id: 11, name: '56〜60' },
     { id: 12, name: '61〜65' },
     { id: 13, name: '66〜70' },
-    { id: 14, name: '71以上' }
+    { id: 14, name: '71〜' }
   ]
 
   include ActiveHash::Associations

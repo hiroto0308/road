@@ -47,7 +47,8 @@ class RooadsController < ApplicationController
   end
 
   def search
-    @rooads = Rooad.search(params[:keyword]).page(params[:page]).per(5)
+    @rooads = Rooad.search(params[:keyword])
+    @rooads = Kaminari.paginate_array(@rooads).page(params[:page]).per(5)
   end
   private
 
