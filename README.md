@@ -3,14 +3,14 @@
 「学習の手順が分からない」というプログラミング初学者の人達に、
 学習のロードマップを作成するサービスです！
 
-# 🌐アプリのURL
+## 🌐アプリのURL
 https://roooad-map.com/
 
-# 📗Qiita記事
+## 📗Qiita記事
 アプリの概要をより詳しくまとめています。
 
 [【アプリ開発】プログラミング初学者向けのアプリ『Roooad(ロ---ド)』をリリースしました。](https://qiita.com/moko_samejima/items/f5881794b0fa90498d01)
-# 📳アプリについて
+# アプリについて
 ![roooad-map com_rooads (1)](https://user-images.githubusercontent.com/72369165/138379056-f1efb072-ceb9-488f-93b3-f351b81ab6e7.png)
 ### 登場人物
 
